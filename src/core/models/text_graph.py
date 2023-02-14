@@ -7,7 +7,7 @@ from ..layers.scalable_graphlearn import AnchorGraphLearner
 from ..layers.anchor import AnchorGCN
 from ..layers.common import dropout, EncoderRNN
 from ..layers.gnn import GCN, GAT
-from ..utils.generic_utils import to_cuda, create_mask, batch_normalize_adj
+from ..utils.generic_utils import to_cuda, create_mask, batch_normalize_adj, normalize_adj
 from ..utils.constants import VERY_SMALL_NUMBER
 
 

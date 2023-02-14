@@ -109,5 +109,5 @@ logging: True # Turn it off for Codalab
 
 
 # Device
-no_cuda: False
+no_cuda: True
 cuda_id: 0

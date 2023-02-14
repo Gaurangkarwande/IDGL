@@ -2,9 +2,12 @@ import argparse
 import yaml
 import torch
 import numpy as np
+import warnings
 from collections import defaultdict, OrderedDict
 
 from core.model_handler import ModelHandler
+
+warnings.filterwarnings("ignore")
 
 ################################################################################
 # Main #
@@ -55,7 +58,7 @@ def multi_run_main(config):
 ################################################################################
 def get_config(config_path="config.yml"):
     with open(config_path, "r") as setting:
-        config = yaml.load(setting)
+        config = yaml.load(setting, Loader=yaml.FullLoader)
     return config
 
 def get_args():

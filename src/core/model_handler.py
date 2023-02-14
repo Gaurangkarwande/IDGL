@@ -46,7 +46,7 @@ class ModelHandler(object):
         self.dirname = self.logger.dirname
         if not config['no_cuda'] and torch.cuda.is_available():
             print('[ Using CUDA ]')
-            self.device = torch.device('cuda' if config['cuda_id'] < 0 else 'cuda:%d' % config['cuda_id'])
+            self.device = torch.device('cpu') #torch.device('cuda' if config['cuda_id'] < 0 else 'cuda:%d' % config['cuda_id'])
             cudnn.benchmark = True
         else:
             self.device = torch.device('cpu')
@@ -1009,8 +1009,8 @@ class ModelHandler(object):
                 print('used_time: {:0.2f}s'.format(time.time() - start_time))
 
             if not training and out_predictions:
-                output.extend(res['predictions'])
-                gold.extend(x_batch['targets'])
+                output.extend(res['predictions'].numpy())
+                gold.extend(x_batch['targets'].cpu().numpy())
         return output, gold
 
 

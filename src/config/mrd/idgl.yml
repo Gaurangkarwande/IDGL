@@ -2,7 +2,7 @@
 data_type: 'text'
 dataset_name: 'mrd'
 data_dir: '../data/mrd/'
-pretrained_word_embed_file: 'your_path_to_glove_vec/glove.840B.300d.txt'
+pretrained_word_embed_file: '/home/gaurang/glove_vectors/glove.840B.300d.txt'
 pretrained: null
 task_type: 'regression'
 
@@ -36,7 +36,7 @@ bignn: False
 graph_module: 'gcn'
 graph_type: 'dynamic'
 graph_learn: True
-graph_metric_type: 'weighted_cosine' # weighted_cosine, kernel, attention, gat_attention, cosine
+graph_metric_type: 'gat_attention' # weighted_cosine, kernel, attention, gat_attention, cosine
 graph_skip_conn: 0.5 # IGL: 0.5 !
 update_adj_ratio: 0.9 # IGL: 0.9 !
 graph_include_self: False # cosine-KNN-GCN: False
@@ -90,7 +90,7 @@ no_gnn: False
 
 random_seed: 1234
 shuffle: True # Whether to shuffle the examples during training
-max_epochs: 1000
+max_epochs: 100
 patience: 10
 verbose: -1
 print_every_epochs: 1 # Print every X epochs
